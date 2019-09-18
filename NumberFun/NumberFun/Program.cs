@@ -30,7 +30,7 @@ namespace NumberFun
                 Row();
             } else if (select == 6)
             {
-                Console.WriteLine("This assignment is being worked on.");
+                DiceRoll();
             } else
             {
                 Console.WriteLine("Invalid selection, please reboot.");
@@ -122,6 +122,31 @@ namespace NumberFun
                 //For debugging
                 Console.WriteLine(result);
             }
+        }
+
+        static void DiceRoll()
+        {
+            Random rnd = new Random();
+            int result;
+            int sixes = 0;
+
+            Console.WriteLine("Results;");
+
+            for (int i = 1; i <= 1000; i++)
+            {
+                result = rnd.Next(6);
+                result++;
+
+                Console.WriteLine(i + ". " + result);
+
+                if (result == 6)
+                {
+                    sixes++;
+                }
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("Kuutonen arvottiin " + sixes + " kertaa.");
         }
     }
 }
