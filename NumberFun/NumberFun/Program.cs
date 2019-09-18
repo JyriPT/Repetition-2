@@ -24,7 +24,7 @@ namespace NumberFun
                 RandomSet();
             } else if (select == 4)
             {
-                Console.WriteLine("This assignment is being worked on.");
+                CoinToss();
             } else if (select == 5)
             {
                 Console.WriteLine("This assignment is being worked on.");
@@ -64,8 +64,40 @@ namespace NumberFun
 
             for (int i = 1; i <= 5; i++)
             {
-                Console.WriteLine("Rivi " + i + "       " + rnd.Next(50) + ", " + rnd.Next(50) + ", " + rnd.Next(50) + ", " + rnd.Next(50) + ", " + rnd.Next(50) + ".");
+                Console.WriteLine("Rivi " + i + "       " + rnd.Next(51) + ", " + rnd.Next(51) + ", " + rnd.Next(51) + ", " + rnd.Next(51) + ", " + rnd.Next(51) + ".");
             }
+        }
+
+        static void CoinToss()
+        {
+            int result;
+            int heads = 0;
+            int tails = 0;
+            Random rnd = new Random();
+
+            Console.WriteLine("How many coinflips?");
+            int n = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("");
+            Console.WriteLine("Rahaa on heitetty " + n + " kertaa:");
+
+            do
+            {
+                result = rnd.Next(2);
+
+                if (result == 1)
+                {
+                    heads++;
+                } else if (result == 0)
+                {
+                    tails++;
+                }
+
+                n--;
+
+            } while (n > 0);
+
+            Console.WriteLine("Klaavoja tuli " + tails + " ja kruunuja " + heads + ".");
         }
     }
 }
