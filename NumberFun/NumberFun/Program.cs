@@ -21,7 +21,7 @@ namespace NumberFun
                 MultiTable();
             } else if (select == 3)
             {
-                Console.WriteLine("This assignment is being worked on.");
+                RandomSet();
             } else if (select == 4)
             {
                 Console.WriteLine("This assignment is being worked on.");
@@ -55,6 +55,16 @@ namespace NumberFun
                 {
                     Console.WriteLine(i + " x " + j + " = " + i * j);
                 }
+            }
+        }
+
+        static void RandomSet()
+        {
+            Random rnd = new Random();
+
+            for (int i = 1; i <= 5; i++)
+            {
+                Console.WriteLine("Rivi " + i + "       " + rnd.Next(50) + ", " + rnd.Next(50) + ", " + rnd.Next(50) + ", " + rnd.Next(50) + ", " + rnd.Next(50) + ".");
             }
         }
     }
