@@ -27,7 +27,7 @@ namespace NumberFun
                 CoinToss();
             } else if (select == 5)
             {
-                Console.WriteLine("This assignment is being worked on.");
+                Row();
             } else if (select == 6)
             {
                 Console.WriteLine("This assignment is being worked on.");
@@ -98,6 +98,30 @@ namespace NumberFun
             } while (n > 0);
 
             Console.WriteLine("Klaavoja tuli " + tails + " ja kruunuja " + heads + ".");
+        }
+
+        static void Row()
+        {
+            Random rnd = new Random();
+            int result;
+
+            for (int i = 1; i <= 13; i++)
+            {
+                result = rnd.Next(11);
+
+                if (result < 5)
+                {
+                    Console.WriteLine(i + ".    1");
+                } else if (result > 6)
+                {
+                    Console.WriteLine(i + ".    2");
+                } else
+                {
+                    Console.WriteLine(i + ".    X");
+                }
+                //For debugging
+                Console.WriteLine(result);
+            }
         }
     }
 }
