@@ -6,7 +6,7 @@ namespace NumberFun
     {
         static void Main(string[] args)
         {
-            int select = 0;
+            int select;
             Console.WriteLine("Select the assignment you wish to check (number 1-6):");
             Console.WriteLine("");
 
@@ -18,7 +18,7 @@ namespace NumberFun
                 Squares();
             } else if (select == 2)
             {
-                Console.WriteLine("This assignment is being worked on.");
+                MultiTable();
             } else if (select == 3)
             {
                 Console.WriteLine("This assignment is being worked on.");
@@ -44,6 +44,17 @@ namespace NumberFun
             for (int i = 1; i <= 10; i++)
             {
                 Console.WriteLine(i + "         " + Math.Round(Math.Sqrt(i), 2));
+            }
+        }
+
+        static void MultiTable()
+        {
+            for (int i = 1; i <= 9; i++)
+            {
+                for (int j = 1; j <= 9; j++)
+                {
+                    Console.WriteLine(i + " x " + j + " = " + i * j);
+                }
             }
         }
     }
