@@ -65,7 +65,7 @@ namespace NumberFun
                 Console.WriteLine(i + "         " + Math.Round(Math.Sqrt(i), 2));
             }
         }
-
+        //Kertotaulujen tulostus.
         static void MultiTable()
         {
             //Ensimmäinen looppi toistaa toisen loopin 9 kertaa.
@@ -79,7 +79,7 @@ namespace NumberFun
                 }
             }
         }
-
+        //Satunnaisten sarjojen tulostus.
         static void RandomSet()
         {
             Random rnd = new Random();
@@ -90,9 +90,10 @@ namespace NumberFun
                 Console.WriteLine("Rivi " + i + "       " + rnd.Next(51) + ", " + rnd.Next(51) + ", " + rnd.Next(51) + ", " + rnd.Next(51) + ", " + rnd.Next(51) + ".");
             }
         }
-
+        //Kolikon heitto.
         static void CoinToss()
         {
+            string input;
             int result;
             int heads = 0;
             int tails = 0;
@@ -100,32 +101,40 @@ namespace NumberFun
 
             //Pyydetään kolikonheittojen määrää, laitetaan lopputulos aluilleen.
             Console.WriteLine("How many coinflips?");
-            int n = int.Parse(Console.ReadLine());
-
-            Console.WriteLine("");
-            Console.WriteLine("Rahaa on heitetty " + n + " kertaa:");
-
-            //Do-toistorakenne, looppi lähtee päälle ja pysyy päällä kun käyttäjän antama luku on suurempi kuin nolla.
-            do
+            input = Console.ReadLine();
+            //Tarkistetaan onko annettu määrä luku, joka on suurempi kuin nolla.
+            //Luodaan samalla muuttuja "n".
+            if (int.TryParse(input, out int n) == true && n > 0)
             {
-                //Varsinainen "kolikon heitto", tulostaan arvon 1 tai 0.
-                result = rnd.Next(2);
-                //Kirjataan tulos.
-                if (result == 1)
-                {
-                    heads++;
-                } else if (result == 0)
-                {
-                    tails++;
-                }
-                //Pienennetään käyttäjän antama numero yhdellä, näin looppi päättyy joskus.
-                n--;
+                Console.WriteLine("");
+                Console.WriteLine("Rahaa on heitetty " + n + " kertaa:");
 
-            } while (n > 0);
-            //Tulostetaan tulos.
-            Console.WriteLine("Klaavoja tuli " + tails + " ja kruunuja " + heads + ".");
+                //Do-toistorakenne, looppi lähtee päälle ja pysyy päällä kun käyttäjän antama luku on suurempi kuin nolla.
+                do
+                {
+                    //Varsinainen "kolikon heitto", tulostaan arvon 1 tai 0.
+                    result = rnd.Next(2);
+                    //Kirjataan tulos.
+                    if (result == 1)
+                    {
+                        heads++;
+                    }
+                    else if (result == 0)
+                    {
+                        tails++;
+                    }
+                    //Pienennetään käyttäjän antama numero yhdellä, näin looppi päättyy joskus.
+                    n--;
+
+                } while (n > 0);
+                //Tulostetaan tulos.
+                Console.WriteLine("Klaavoja tuli " + tails + " ja kruunuja " + heads + ".");
+            } else
+            {
+                Console.WriteLine("Invalid input, please reboot.");
+            }
         }
-
+        //Vakioveikkausrivin tulostus.
         static void Row()
         {
             Random rnd = new Random();
@@ -150,7 +159,7 @@ namespace NumberFun
                 }
             }
         }
-
+        //Nopanheitto.
         static void DiceRoll()
         {
             Random rnd = new Random();
