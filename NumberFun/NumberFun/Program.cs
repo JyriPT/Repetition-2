@@ -7,35 +7,49 @@ namespace NumberFun
         static void Main(string[] args)
         {
             int select;
+            string input;
             Console.WriteLine("Select the assignment you wish to check (number 1-6):");
             Console.WriteLine("");
 
-            select = int.Parse(Console.ReadLine());
+            input = Console.ReadLine();
             Console.WriteLine("");
 
-            if (select == 1)
+            if (int.TryParse(input, out select) == true)
             {
-                Squares();
-            } else if (select == 2)
-            {
-                MultiTable();
-            } else if (select == 3)
-            {
-                RandomSet();
-            } else if (select == 4)
-            {
-                CoinToss();
-            } else if (select == 5)
-            {
-                Row();
-            } else if (select == 6)
-            {
-                DiceRoll();
+                if (select == 1)
+                {
+                    Squares();
+                }
+                else if (select == 2)
+                {
+                    MultiTable();
+                }
+                else if (select == 3)
+                {
+                    RandomSet();
+                }
+                else if (select == 4)
+                {
+                    CoinToss();
+                }
+                else if (select == 5)
+                {
+                    Row();
+                }
+                else if (select == 6)
+                {
+                    DiceRoll();
+                }
+                else
+                {
+                    Console.WriteLine("Invalid selection, please reboot.");
+                }
             } else
             {
                 Console.WriteLine("Invalid selection, please reboot.");
             }
         }
+        
 
         static void Squares()
         {
@@ -119,8 +133,6 @@ namespace NumberFun
                 {
                     Console.WriteLine(i + ".    X");
                 }
-                //For debugging
-                Console.WriteLine(result);
             }
         }
 
